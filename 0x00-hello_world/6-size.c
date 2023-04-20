@@ -1,8 +1,8 @@
 #include <stdio.h>
 /*
-   *main - Entry point
-   *to determine the size of various data types in C
-   *Return: Always 0 (Success)
+   * main - Entry point
+   * Description: to determine the size of various data types in C
+   * Return: Always 0 (Success)
    */
 int main(void)
 {
