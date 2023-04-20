@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
-  * main -continue puts function that print a message
+  *main - Entry point
   *puts - print a message
-  * return return 0
+  *Return: Always 0 (Success)
 */
 int main(void)
 {
