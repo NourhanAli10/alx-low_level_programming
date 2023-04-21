@@ -5,10 +5,7 @@
 */
 int main(void)
 {
-char alpha = 'a';
-for (alpha; alpha <= 'z'; alpha++)
-{
-putchar(alpha);
-}
+putchar(100);
 return (0);
 }
+
