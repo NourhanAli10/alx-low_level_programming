@@ -5,7 +5,11 @@
 */
 int main(void)
 {
-putchar(100);
+for (char c = 'a'; c <= 'z'; c++)
+{
+putchar(c);
+}
+putchar('\n');
 return (0);
 }
 
