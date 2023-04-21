@@ -5,12 +5,12 @@
 */
 int main(void)
 {
-int n = 0;
-for (n; n <= 9; n++)
+int n;
+for (n = 0; n <= 9; n++)
 {
 putchar(n + 48);
 putchar((n == 9) ? 36 : 44);
-putchar(32);
+putchar(' ');
 }
 return (0);
 }
