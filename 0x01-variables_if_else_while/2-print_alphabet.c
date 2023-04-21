@@ -5,7 +5,7 @@
 */
 int main(void)
 {
-for (char c = 'a'; c <= 'z'; c++)
+for (int c = 97; c <= 122; c++)
 {
 putchar(c);
 }
