@@ -9,8 +9,7 @@ int n;
 for (n = 0; n <= 9; n++)
 {
 putchar(n + 48);
-putchar((n == 9) ? 36 : 44);
-if (n != 9)
+putchar((n == 9) ? 32 : 44);
 putchar(32);
 }
 return (0);
