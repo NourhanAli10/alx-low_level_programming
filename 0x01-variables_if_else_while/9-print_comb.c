@@ -12,8 +12,8 @@ putchar(n + 48);
 if (n != 9)
 {
 putchar(44);
-putchar(32);
 }
+putchar(32);
 }
 return (0);
 }
