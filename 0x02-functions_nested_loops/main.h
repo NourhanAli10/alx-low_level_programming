@@ -1,2 +1,2 @@
 int _putchar(char c);
-void print_word(void);
+void ptint_word(void);
