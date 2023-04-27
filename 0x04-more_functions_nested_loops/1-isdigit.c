@@ -5,7 +5,7 @@
   *
   *@c: the character in ASCi table
   *
-  * Return: 1 for uppercase. 0 for otherwise
+  * Return: 1 for digit 0 for otherwise
   */
 
 int _isdigit(int c)
