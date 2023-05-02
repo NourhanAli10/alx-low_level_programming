@@ -7,11 +7,20 @@
 */
 int _strlen(char *s)
 {
-int i;
-for (i = 0; i < *s; i++)
+int len = 0;
+while (*s != '\0')
 {
-_putchar(i);
+len++;
+s++;
 }
-return (i);
+return (len);
 }
+
+
+
+
+
+
+
+
 
