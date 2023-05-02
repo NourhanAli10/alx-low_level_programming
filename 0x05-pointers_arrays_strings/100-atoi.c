@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 /**
 * _atoi - function that convert a string to an integer.g
 * @s: the pointer that store the value of the string
