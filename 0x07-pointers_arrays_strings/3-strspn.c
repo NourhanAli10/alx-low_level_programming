@@ -18,3 +18,10 @@ if (*s == accept[r])
 n++;
 break;
 }
+else if (accept[r + 1] == '\0')
+return (n);
+}
+s++;
+}
+return (n);
+}
