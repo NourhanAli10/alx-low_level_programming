@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
  * main - Entry point
@@ -13,9 +12,6 @@ int main(int argc, char *argv[])
 	int a, b;
 	int result;
 
-	a =  atoi(argv[1]);
-	b =  atoi(argv[2]);
-
 	if (argc < 3)
 	{
 		printf("%s\n", "Error");
@@ -23,6 +19,9 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
+		a =  atoi(argv[1]);
+		b =  atoi(argv[2]);
+
 		result = a * b;
 		printf("%d\n", result);
 	}
