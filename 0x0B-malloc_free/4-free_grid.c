@@ -3,14 +3,18 @@
 #include <stdlib.h>
 
 /**
- * alloc_grid - returns a pointer to a 2 dimensional array of integers.
- * @width: width of the grid
+ * free_grid - frees a 2 dimensional grid previously created 
+ * @grid: the address of the two dimensional grid
  * @height: height of the grid
- * Return: pointer to a 2 dimensional array of integers
  */
 
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
+	int i;
 
-
+	for (i = 0; i < height; i++)
+	{
+		free(grid[i]);
+	}
+	free(grid);
 }
