@@ -9,14 +9,15 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
-	const char *ptr;
+	char *ptr;
 	va_list args;
 
 	va_start(args, n);
 	for (i = 0; i < n; i++)
 	{
 		ptr = va_arg(args, char *);
-	        printf("%s%s", (ptr == NULL) ? "nil" : ptr, (i < n - 1 && separator != NULL) ? separator : "");
+		printf("%s%s", (ptr == NULL) ? "nil" : ptr,
+		(i < n - 1 && separator != NULL) ? separator : "");
 	}
 	printf("\n");
 	va_end(args);
