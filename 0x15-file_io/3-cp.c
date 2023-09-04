@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     }
    
     
-    while (read_f = read(fn_from, mem, BUFFER_SIZE) > 0)
+    while ((read_f = read(fn_from, mem, BUFFER_SIZE) > 0))
     {
         write_f = write(fn_to, mem, read_f);
         if (write_f == -1)
