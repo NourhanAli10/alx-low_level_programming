@@ -15,11 +15,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 	fn = open(filename, O_RDONLY);
-	c = malloc(sizeof(char) * letters);
-	re = read(fn, c, letters);
-	wr = write(STDOUT_FILENO, c, re);
-	if (!wr)
+
+	if (fn == -1)
 		return (0);
+
+	c = malloc(sizeof(char) * letters);
+	re = read(fn,c,letters);
+
+	wr = write(STDOUT_FILENO,c,re);
+
+	if (wr == -1)
+		return (0);
+
 	close(fn);
 	return (wr);
 }
