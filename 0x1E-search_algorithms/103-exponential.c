@@ -8,74 +8,58 @@
 * @value: Value to search for
 * Return: Index where the value is located, or -1 if not found or array is NULL
 */
-
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t bound;
-	size_t left, right;
+	size_t i = 1, newsize = 0;
+	int ret;
 
-	if (array == NULL || size == 0)
+	if (!array || !size)
 		return (-1);
 
-	if (array[0] == value)
+	while (i < size && array[i] < value)
 	{
-		printf("Value checked array[0] = [%d]\n", array[0]);
-		return (0);
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+		i <<= 1;
 	}
-
-	bound = 1;
-
-	while (bound < size && array[bound] < value)
-	{
-		printf("Value checked array[%lu] = [%d]\n", bound, array[bound]);
-		bound *= 2;
-	}
-
-	left = bound / 2;
-	right = (bound < size - 1) ? bound : size - 1;
-
-	printf("Value found between indexes [%lu] and [%lu]\n", left, right);
-
-	return (binary_search(array, left, right, value));
+	newsize = (i >= size ? size : i + 1) - (i >> 1);
+	i >>= 1;
+	printf("Value found between indexes [%lu] and [%lu]\n",
+			i, i << 1 >= size ? size - 1 : i << 1);
+	ret = binary_search(array + i, newsize, value);
+	return (ret == -1 ? ret : ret + (int)i);
 }
 
 /**
-* binary_search - Searches for a value in a sorted array using Binary Search
-* @array: Pointer to the first element of the array
-* @left: Left index of the subarray
-* @right: Right index of the subarray
-* @value: Value to search for
-* Return: Index where the value is located, or -1 if not found
-*/
-
-int binary_search(int *array, size_t left, size_t right, int value)
+ * binary_search - performs binary search
+ * @array: the integer array
+ * @size: its size
+ * @value: value to search for
+ *
+ * Return: the index found or -1
+ */
+int binary_search(int *array, size_t size, int value)
 {
-	size_t mid;
-	size_t i;
+	size_t i = 0;
+	int *a = array;
 
-	while (left <= right)
+	if (!array)
+		return (-1);
+
+	while (size)
 	{
-		mid = (left + right) / 2;
+		for (i = 0, printf("Searching in array: "); i < size; i++)
+			printf("%d%s", a[i], i + 1 == size ? "\n" : ", ");
 
-		printf("Searching in array: ");
-		for (i = left; i <= right; ++i)
-		{
-			printf("%d", array[i]);
-			if (i < right)
-				printf(", ");
-		}
-		printf("\n");
-
-		printf("Value checked array[%lu] = [%d]\n", mid, array[mid]);
-
-		if (array[mid] == value)
-			return (mid);
-
-		if (array[mid] < value)
-			left = mid + 1;
+		i = (size - 1) / 2;
+		if (a[i] == value)
+			return ((a - array) + i);
+		else if (a[i] > value)
+			size = i;
 		else
-			right = mid - 1;
+		{
+			a += (i + 1);
+			size -= (i + 1);
+		}
 	}
-
 	return (-1);
 }
