@@ -17,11 +17,11 @@ int interpolation_search(int *array, size_t size, int value)
 	size_t numerator, denominator;
 	size_t pos;
 
-
 	if (array == NULL || size == 0)
 		return (-1);
 
-	low = 0, high = size - 1;
+	low = 0;
+	high = size - 1;
 
 	while (low <= high && value >= array[low] && value <= array[high])
 	{
@@ -29,11 +29,14 @@ int interpolation_search(int *array, size_t size, int value)
 		denominator = array[high] - array[low];
 
 		if (denominator == 0)
+		{
+			printf("Denominator is zero! Cannot proceed.\n");
 			return (-1);
+		}
 
 		pos = low + ((double)(high - low) / denominator) * numerator;
 
-		printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
+		printf("Value checked array[%lu] = [%d], pos = %lu\n", pos, array[pos], pos);
 
 		if (array[pos] == value)
 			return (pos);
@@ -47,4 +50,3 @@ int interpolation_search(int *array, size_t size, int value)
 	printf("Value checked array[%lu] is out of range\n", low);
 	return (-1);
 }
-
